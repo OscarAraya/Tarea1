@@ -6,8 +6,7 @@ all: $(ISO_NAME)
 
 $(ISO_NAME):
 	mkinitramfs -o $(INITRD_FILE)
-	genisoimage -o $(ISO_NAME) -b /home/kali/Downloads/isoroot/isolinux/isolinux.bin -c /home/kali/Downloads/isoroot/isolinux/boot.cat -r -J -no-emul-boot -boot-load-size 4 -boot-info-table -input-charset utf-8 /home/kali/Downloads/isoroot/isolinux
-	isohybrid $(ISO_NAME)
+	xorriso -as mkisofs -o Tarea1.iso -b isolinux/isolinux/bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table /home/kali/Downloads/isoroot/
    
 clean:
 	rm -f $(ISO_NAME)
